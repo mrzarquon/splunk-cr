@@ -1,0 +1,22 @@
+
+<% | String $server_name,
+     String $listen_address,
+     String $return_value,
+     String $ipv6_only,
+     String $webroot_paths,
+| -%>
+server {
+  server_name <%= $server_name %>;
+  listen <%= $listen_address %>:80 ipv6only=<%= $ipv6_only %>;
+  ;
+  
+  root <%= $webroot_paths %>;
+
+  location /.well-known {
+    try_files $uri $uri/ =404;
+  }
+
+  location / {
+    return <%= $return_value %>;
+  }
+}
