@@ -12,11 +12,17 @@ class profile::letsencrypt (
   Boolean $enable_http_redirect = true,
   Boolean $ipv6_only = false,
   String  $ssl_listen_address = '0.0.0.0',
-  String  $webroot_paths = '/var/www/letsencrypt'
 ) {
+
+  $webroot_paths = '/var/www/letsencrypt'
 
   $http_redirect_file_ensure = $enable_http_redirect ? {
     true    => file,
+    default => absent,
+  }
+
+  $letsencrypt_dir_ensure = $enable_http_redirect ? {
+    true    => directory,
     default => absent,
   }
 
@@ -31,7 +37,14 @@ class profile::letsencrypt (
     false => 'off'
   }
 
-  file { "${puppet_enterprise::nginx_conf_dir}/conf.d/http_redirect.conf":
+  file {['/var/www', '/var/www/letsencrypt']:
+    ensure => $letsencrypt_dir_ensure,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+  }
+
+  file { '/etc/puppetlabs/nginx/conf.d/http_redirect.conf':
     ensure  => $http_redirect_file_ensure,
     owner   => root,
     group   => root,
@@ -62,5 +75,6 @@ class profile::letsencrypt (
     cron_minute          => '30',
     cron_success_command => '/bin/systemctl reload pe-nginx',
     suppress_cron_output => true,
+    require              => File[$webroot_paths]
   }
 }
