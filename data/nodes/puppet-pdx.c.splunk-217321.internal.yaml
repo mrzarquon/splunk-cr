@@ -1,6 +1,15 @@
 ---
   classes:
     - profile::letsencrypt
+    - splunk_hec
+  splunk_hec::url: https://splunk.c.splunk-217321.internal:8088/services/collector
+  splunk_hec::token: aa2d7aa6-e1a7-42b5-94f6-4d08b458605c
+  splunk_hec::enable_reports: true
+  splunk_hec::manage_routes: true
+  splunk_hec::pe_console: puppet-pdx.pie.automationdemos.com
+  splunk_hec::include_logs_catalog_failure: true
+  splunk_hec::include_logs_corrective_change: true
+  splunk_hec::include_resources_corrective_change: true
   profile::letsencrypt::server_name: puppet-pdx.pie.automationdemos.com
   puppet_enterprise::profile::console::browser_ssl_cert: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/cert.pem
   puppet_enterprise::profile::console::browser_ssl_private_key: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/privkey.pem
