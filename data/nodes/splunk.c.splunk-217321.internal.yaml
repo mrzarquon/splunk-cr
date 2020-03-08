@@ -1,2 +1,10 @@
 ---
+  classes:
+    - profile::letsencrypt
+    - profile::nginx
+    - profile::splunk
+  profile::splunk::server_name: splunk.pie.automationdemos.com
+  profile::letsencrypt::nginx_name: nginx
+  profile::letsencrypt::nginx_confd: /etc/nginx/conf.d
   profile::letsencrypt::server_name: splunk.pie.automationdemos.com
+  profile::letsencrypt::cron_success_command: '/bin/systemctl restart splunk'
