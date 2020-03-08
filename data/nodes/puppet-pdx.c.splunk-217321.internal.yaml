@@ -2,7 +2,9 @@
   classes:
     - profile::letsencrypt
     - splunk_hec
+    - puppet_metrics_collector
   splunk_hec::pe_console: puppet-pdx.pie.automationdemos.com
   profile::letsencrypt::server_name: puppet-pdx.pie.automationdemos.com
+  puppet_metrics_collector::metrics_server_type: splunk_hec
   puppet_enterprise::profile::console::browser_ssl_cert: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/cert.pem
   puppet_enterprise::profile::console::browser_ssl_private_key: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/privkey.pem
