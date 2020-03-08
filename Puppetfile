@@ -18,6 +18,8 @@ mod 'puppetlabs-facts', :latest
 mod 'puppet-letsencrypt', :latest
 mod 'stahnma-epel', :latest
 
+mod 'aboe-chrony', :latest
+
 mod 'investigate',
   :git => 'https://github.com/mrzarquon/puppet-module-investigate.git'
 
