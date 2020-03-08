@@ -60,6 +60,7 @@ class profile::letsencrypt (
       webroot_paths  => $webroot_paths,
     }),
     notify  => Service[$nginx_name],
+    require => Package[$nginx_name],
   }
 
   class { 'letsencrypt':
