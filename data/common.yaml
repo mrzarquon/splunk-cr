@@ -1,5 +1,7 @@
 ---
-  classes: chrony
+  classes: 
+    - chrony
+    - profile::agent_settings
   puppet_enterprise::profile::console::proxy::http_redirect::enable_http_redirect: false
   chrony::servers:
     - time1.google.com
