@@ -18,7 +18,7 @@ class profile::splunk (
     ensure  => present,
     section => 'settings',
     setting => 'enableSplunkWebSSL',
-    value   => 'true',
+    value   => 1,
   }
 
   ini_setting { 'splunk_web_serverCert':
@@ -33,5 +33,12 @@ class profile::splunk (
     section => 'settings',
     setting => 'privKeyPath',
     value   => "/etc/letsencrypt/live/${server_name}/privkey.pem",
+  }
+
+  ini_setting { 'splunk_web_httpport':
+    ensure  => present,
+    section => 'settings',
+    setting => 'httpport',
+    value   => 443,
   }
 }
