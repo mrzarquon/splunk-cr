@@ -1,7 +1,7 @@
 ---
 puppet_enterprise::profile::console::proxy::http_redirect::enable_http_redirect: false
-ntp::servers:
-  - time1.google.com iburst
-  - time2.google.com iburst
-  - time3.google.com iburst
-  - time4.google.com iburst
+chrony::servers:
+  - time1.google.com
+  - time2.google.com
+  - time3.google.com
+  - time4.google.com
