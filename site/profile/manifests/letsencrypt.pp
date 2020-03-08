@@ -46,6 +46,13 @@ class profile::letsencrypt (
     notify  => Service['pe-nginx'],
   }
 
+  class { 'letsencrypt':
+    email          => 'cbarker@puppet.com',
+    package_ensure => 'latest',
+    configure_epel => true,
+  }
+
+
   letsencrypt::certonly { $server_name:
     domains              => [$server_name],
     plugin               => 'webroot',
