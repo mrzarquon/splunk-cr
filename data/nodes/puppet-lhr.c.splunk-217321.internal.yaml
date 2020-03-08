@@ -1,6 +1,8 @@
 ---
   classes:
     - profile::letsencrypt
+    - splunk_hec
+  splunk_hec::pe_console: puppet-lhr.pie.automationdemos.com
   profile::letsencrypt::server_name: puppet-lhr.pie.automationdemos.com
   puppet_enterprise::profile::console::browser_ssl_cert: /etc/letsencrypt/live/puppet-lhr.pie.automationdemos.com/cert.pem
   puppet_enterprise::profile::console::browser_ssl_private_key: /etc/letsencrypt/live/puppet-lhr.pie.automationdemos.com/privkey.pem
