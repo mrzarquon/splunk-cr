@@ -1,9 +1,8 @@
-
 <% | String $server_name,
      String $listen_address,
      String $return_value,
      String $ipv6_only,
-     String $webroot_paths,
+     String $webroot_paths
 | -%>
 server {
   server_name <%= $server_name %>;
