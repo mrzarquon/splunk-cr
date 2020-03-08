@@ -1,7 +1,11 @@
-class profile::letsencrypt {
+# get a cert for a hostname
 
-  letsencrypt::certonly { 'puppet.angrydome.org':
-    domains              => ['puppet.angrydome.org'],
+class profile::letsencrypt (
+  String[1] $fqdn = undef,
+) {
+
+  letsencrypt::certonly { $fqdn:
+    domains              => [$fqdn],
     plugin               => 'webroot',
     webroot_paths        => ['/var/www/html'],
     manage_cron          => true,

@@ -1,3 +1,0 @@
----
-puppet_enterprise::profile::console::proxy::http_redirect::enable_http_redirect: false
-puppet_enterprise::master::static_catalogs: true
