@@ -44,7 +44,7 @@ class profile::letsencrypt (
     mode   => '0644',
   }
 
-  file { '/etc/puppetlabs/nginx/conf.d/http_redirect.conf':
+  file { '/etc/puppetlabs/nginx/conf.d/letsencrypt_redirect.conf':
     ensure  => $http_redirect_file_ensure,
     owner   => root,
     group   => root,
