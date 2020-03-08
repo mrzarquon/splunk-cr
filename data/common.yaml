@@ -13,3 +13,8 @@
   splunk_hec::include_logs_catalog_failure: true
   splunk_hec::include_logs_corrective_change: true
   splunk_hec::include_resources_corrective_change: true
+  splunk_hec::include_resources_status:
+    - failed
+    - changed
+  splunk_hec::include_logs_status:
+    - failed
