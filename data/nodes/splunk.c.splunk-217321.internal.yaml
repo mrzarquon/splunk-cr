@@ -1,0 +1,2 @@
+---
+  profile::letsencrypt::server_name: splunk.pie.automationdemos.com
