@@ -75,6 +75,9 @@ class profile::letsencrypt (
     cron_minute          => '30',
     cron_success_command => '/bin/systemctl reload pe-nginx',
     suppress_cron_output => true,
-    require              => File[$webroot_paths]
+    require              => [
+      File[$webroot_paths],
+      Service['pe-nginx']
+    ],
   }
 }
