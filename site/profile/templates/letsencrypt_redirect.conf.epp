@@ -7,7 +7,6 @@
 server {
   server_name <%= $server_name %>;
   listen <%= $listen_address %>:80 ipv6only=<%= $ipv6_only %>;
-  ;
   
   root <%= $webroot_paths %>;
 
