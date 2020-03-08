@@ -1,3 +1,6 @@
 ---
-    puppet_enterprise::profile::console::browser_ssl_cert: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/cert.pem
-    puppet_enterprise::profile::console::browser_ssl_private_key: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/privkey.pem
+  classes:
+    - profile::letsencrypt
+  profile::letsencrypt::server_name: puppet-pdx.pie.automationdemos.com
+  puppet_enterprise::profile::console::browser_ssl_cert: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/cert.pem
+  puppet_enterprise::profile::console::browser_ssl_private_key: /etc/letsencrypt/live/puppet-pdx.pie.automationdemos.com/privkey.pem
