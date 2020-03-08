@@ -79,6 +79,7 @@ class profile::letsencrypt (
     cron_success_command => $cron_success_command,
     suppress_cron_output => true,
     require              => [
+      File["${$nginx_confd}/letsencrypt_redirect.conf"],
       File[$webroot_paths],
       Service[$nginx_name]
     ],
