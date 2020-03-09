@@ -2,9 +2,14 @@
 
 class profile::agent_settings {
 
+  $puppet_conf = $facts['os']['family'] ? {
+    'windows'          => 'C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf',
+    default            => '/etc/puppetlabs/puppet/puppet.conf',
+  }
+
   Pe_ini_setting {
     ensure  => present,
-    path    => "${::puppet_enterprise::params::confdir}/puppet.conf",
+    path    => $puppet_conf,
     section => 'agent',
   }
 
