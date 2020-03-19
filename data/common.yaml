@@ -8,8 +8,8 @@
     - time2.google.com
     - time3.google.com
     - time4.google.com
-  splunk_hec::url: https://splunk.c.splunk-217321.internal:8088/services/collector
-  splunk_hec::token: aa2d7aa6-e1a7-42b5-94f6-4d08b458605c
+  splunk_hec::url: https://splunk-aob.c.splunk-217321.internal:8088/services/collector
+  splunk_hec::token: 38ef54a6-9817-41cd-b22a-106d7d4c4efa
   splunk_hec::enable_reports: true
   splunk_hec::manage_routes: true
   splunk_hec::include_logs_catalog_failure: true
