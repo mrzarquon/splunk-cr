@@ -12,6 +12,7 @@ class profile::patches {
 
   Package <| title == 'chrony' |> {
     ensure => '3.5-1.el8'
+    tags => ['patched']
   }
 
 
