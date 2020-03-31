@@ -3,6 +3,9 @@
     - profile::letsencrypt
     - splunk_hec
     - puppet_metrics_collector
+    - profile::patches
+  chrony::servers:
+    - time.apple.com
   splunk_hec::pe_console: puppet-lhr.pie.automationdemos.com
   profile::letsencrypt::server_name: puppet-lhr.pie.automationdemos.com
   puppet_metrics_collector::metrics_server_type: splunk_hec
