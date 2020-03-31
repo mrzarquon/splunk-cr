@@ -5,6 +5,8 @@ class profile::patches {
   $patches = lookup('patches')
 
   patches.each | $pkgname, $pkgversion | {
+    notify {"hello ${pkgname} and ${pkgversion}":}
+
     Package <| title == $pkgname |> {
       ensure => $pkgversion,
       tag    => ['remediate_patched','remediate_overriden'],
