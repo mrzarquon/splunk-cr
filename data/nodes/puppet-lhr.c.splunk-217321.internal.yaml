@@ -3,7 +3,7 @@
     - profile::letsencrypt
     - splunk_hec
     - puppet_metrics_collector
-    - profile::patches
+    - profile::remediate
   chrony::servers:
     - time.apple.com
   pkg_patches:

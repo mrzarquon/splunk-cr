@@ -1,11 +1,10 @@
 # a really dumb class to prove a way to do patches
 
-class profile::patches {
+class profile::remediate {
 
   $pkg_patches = lookup('pkg_patches')
 
   $pkg_patches.each | $pkgname, $pkgversion | {
-    notify {"hello ${pkgname} and ${pkgversion}":}
 
     Package <| title == $pkgname |> {
       ensure => $pkgversion,
