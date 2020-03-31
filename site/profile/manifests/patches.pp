@@ -2,18 +2,19 @@
 
 class profile::patches {
 
-  # $patches = lookup('patches')
+  $patches = lookup('patches')
 
-  # patches.each | $pkgname, $pkgversion | {
-  #   Package <| title == $pkgname |> {
-  #     ensure => $pkgversion,
-  #   }
-  # }
-
-  Package <| title == 'chrony' |> {
-    ensure => '3.5-1.el8',
-    tag    => ['patched'],
+  patches.each | $pkgname, $pkgversion | {
+    Package <| title == $pkgname |> {
+      ensure => $pkgversion,
+      tag    => ['remediate_patched','remediate_overriden'],
+    }
   }
+
+  # Package <| title == 'chrony' |> {
+  #   ensure => '3.5-1.el8',
+  #   tag    => ['patched'],
+  # }
 
 
 }
