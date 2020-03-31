@@ -2,9 +2,9 @@
 
 class profile::patches {
 
-  $patches = lookup('patches')
+  $pkg_patches = lookup('::patches')
 
-  patches.each | $pkgname, $pkgversion | {
+  $pkg_patches.each | $pkgname, $pkgversion | {
     notify {"hello ${pkgname} and ${pkgversion}":}
 
     Package <| title == $pkgname |> {
