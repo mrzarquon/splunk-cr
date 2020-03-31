@@ -6,7 +6,7 @@
     - profile::patches
   chrony::servers:
     - time.apple.com
-  patches:
+  pkg_patches:
     chrony: 3.5-1.el8
   splunk_hec::pe_console: puppet-lhr.pie.automationdemos.com
   profile::letsencrypt::server_name: puppet-lhr.pie.automationdemos.com
